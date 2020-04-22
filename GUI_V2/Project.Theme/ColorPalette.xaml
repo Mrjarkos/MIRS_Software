@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Project.Theme">
+
+
+    <SolidColorBrush x:Key="Background"   Color="#081D3B"/>
+    <SolidColorBrush x:Key="Highlight"   Color="#1F70E0"/>
+    <SolidColorBrush x:Key="TiteMenu"   Color="#113D7A"/>
+    <SolidColorBrush x:Key="GridBackground"   Color="#BABABA"/>
+    <SolidColorBrush x:Key="Color3"   Color="#154037"/>
+    <SolidColorBrush x:Key="Color4"   Color="#2A806E"/>
+    <SolidColorBrush x:Key="Color5"   Color="#4BE6C6"/>
+    <SolidColorBrush x:Key="Color6"   Color="#54FFDD"/>
+    
+
+
+    <Color x:Key="BtnMouseOverColor" A="222" R="31" G="123" B="224"/><!--Color2 RGB-->
+    <Color x:Key="BtnBackgroundColor" A="59" R="8" G="29" B="59"/><!--Color 1 RGB-->
+
+    <Color x:Key="BtnBackgroundColorConfirm" A="150" R="36" G="156" B="92"/><!--Color 4 RGB-->
+    <Color x:Key="BtnMouseOverColorConfirm" A="200" R="75" G="255" B="151"/><!--Color 5 RGB-->
+
+    <SolidColorBrush x:Key="BorderBrush" Color="#ECECEC"/>
+
+</ResourceDictionary>
