@@ -42,7 +42,6 @@ namespace Generador
     public abstract class MathFunctions
     {
         public static Points Sin(float Amp, float freq, float Offset, bool Inv, float Ph, int length= 4096) {
-            double x;
             float T = 1/freq;
             Ph = Ph * (float)Math.PI / (float)180;
             Points points = new Points(length);

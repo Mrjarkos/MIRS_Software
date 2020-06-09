@@ -53,5 +53,31 @@ namespace Generador
                     break;
             }
         }
+
+        public void GetParameters() { 
+
+        }
+
+        public Points GetPoints() {
+            var param = defaultFunction.GetParameters();
+            Points points = new Points(0);
+            switch (param.wave_form)
+            {
+                case Default_Wave_Form.Sinusoidal:
+                    points = MathFunctions.Sin(param.Amp, param.freq, param.Offset, param.Inv, param.Ph);
+                    break;
+                case Default_Wave_Form.Square:
+                    break;
+                case Default_Wave_Form.Triangular:
+                    break;
+                case Default_Wave_Form.Sawtooth:
+                    break;
+                case Default_Wave_Form.Sinus_Rectified:
+                    break;
+                default:
+                    break;
+            }
+            return points;
+        }
     }
 }

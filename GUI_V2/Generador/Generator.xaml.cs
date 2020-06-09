@@ -64,7 +64,8 @@ namespace Generador
 
         private void BtnAppl_Click(object sender, RoutedEventArgs e)
         {
-            //int channel = cmbChannels.SelectedIndex;
+            int i = cmbChannels.SelectedIndex;
+            Points points = channels[i].Gui.GetPoints();
             //Function function = (Function)cmbFunctions.SelectedIndex;
             //Points points = new Points(0);
             //switch (function) {
@@ -81,8 +82,8 @@ namespace Generador
             //        points = defaultFunction();
             //        break;
             //}
-            //this.channels[channel].setWaveform(points);
-            //grap();
+            this.channels[i].SetWaveForm(points);
+            grap();
         }
 
         private void cmbFunctions_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -130,68 +131,6 @@ namespace Generador
                     duty.IsEnabled = true;
                     break;
             }
-        }
-
-        private void defaultGui() {
-            //GridProperties.Visibility = Visibility.Visible;
-            //GridBurst.Visibility = Visibility.Hidden;
-            //GridChirp.Visibility = Visibility.Hidden;
-
-            //TextBlock text = new TextBlock();
-            //TextBlock text2 = new TextBlock();
-            //TextBox textbox = new TextBox();
-            
-            //CheckBox check = new CheckBox();
-            //List<UIElement> controls;
-            //this.propiertiesStack.Clear();
-            //check.VerticalAlignment = VerticalAlignment.Center;
-            //check.HorizontalAlignment = HorizontalAlignment.Left;
-            //check.Margin = new Thickness(10, 5, 10, 5); 
-
-            //text.Width = 110;
-            //cmbWave.ItemsSource = (Default_Wave_Form[])Enum.GetValues(typeof(Default_Wave_Form));
-            //cmbWave.Visibility = Visibility.Visible;
-            //txtWave.Text = "Wave Form";
-            //txtWave.Width = 110;
-            
-            //text.Text = "Amplitude";
-            //text2.Text = "V";
-            //controls = new List<UIElement> { text, textbox, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //text.Text = "Frequency";
-            //text2.Text = "Hz";
-            //controls = new List<UIElement> { text, textbox, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //text.Text = "Phase";
-            //text2.Text = "deg";
-            //controls = new List<UIElement> { text, textbox, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //text.Text = "Offset";
-            //text2.Text = "V";
-            //controls = new List<UIElement> { text, textbox, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //text.Text = "Duty Cycle";
-            //text2.Text = "%"; 
-            //controls = new List<UIElement> { text, textbox, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //text.Text = "Invert";
-            //text2.Text = "";
-            //controls = new List<UIElement> { text, check, text2 };
-            //propiertiesStack.Add(addChildrenStack(controls));
-
-            //GridProperties.Children.Clear();
-            //GridProperties.Children.Add(cmbContainer);
-            //int i = 1;
-            //foreach (StackPanel stack in propiertiesStack) {
-            //    GridProperties.Children.Add(stack);
-            //    Grid.SetRow(stack, i);
-            //    i++;
-            //}
         }
 
         private StackPanel addChildrenStack(List<UIElement> controls) {

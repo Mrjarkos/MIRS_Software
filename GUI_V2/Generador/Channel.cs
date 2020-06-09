@@ -15,7 +15,6 @@ namespace Generador
     class Channel
     {
         public Channel_Name name { get; set; }
-        public FunctionEnu function { get; set; }
         public bool enable { get; set; }
         Points wave { get; set; }
         public Color colorBrush;
@@ -24,9 +23,8 @@ namespace Generador
         public Channel(Channel_Name name, Color color) {
             this.name = name;
             this.colorBrush = color;
-            function = FunctionEnu.Default;
             enable = false;
-            //wave = MathFunctions.None();
+            wave = MathFunctions.None();
         }
 
         public Channel() { 
