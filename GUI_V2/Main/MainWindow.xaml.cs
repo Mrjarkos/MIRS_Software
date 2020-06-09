@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InteractiveDataDisplay.WPF;
+using Osciloscopio;
+using Generador;
 
 
 namespace Main
@@ -21,92 +23,57 @@ namespace Main
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-
-    
-
-    
     public partial class MainWindow : Window
     {
+
+        Page Inicio;
+        Page conexion;
+        Page generador;
+        Page osciloscopio;
+        Page procesamiento;
+        //Page Ayuda;
+
         public MainWindow()
         {
-        InitializeComponent();
-            var_init();
-            double[] x = new double[200];
-            for (int i = 0; i < x.Length; i++)
-                x[i] = 3.1415 * i / (x.Length - 1);
-
-            for (int i = 0; i < 25; i++)
-            {
-                var lg = new LineGraph();
-                GeneratorSeries.Children.Add(lg);
-                lg.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, (byte)(i * 10), 0));
-                lg.Description = String.Format("Data series {0}", i + 1);
-                lg.StrokeThickness = 2;
-                lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
-            }
+            InitializeComponent();
+            PageContaint.NavigationUIVisibility = NavigationUIVisibility.Hidden;
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            GridHome.Visibility = Visibility.Visible;
-            GridDSPCOM.Visibility = Visibility.Hidden;
-            GridSignalGen.Visibility = Visibility.Hidden;
-            GridOscilloscope.Visibility = Visibility.Hidden;
-            GridSignalProc.Visibility = Visibility.Hidden;
+            //this.graphic.Changepage(GridHome);
         }
 
         private void BtnDSPcon_Click(object sender, RoutedEventArgs e)
         {
-            GridHome.Visibility = Visibility.Hidden;
-            GridDSPCOM.Visibility = Visibility.Visible;
-            GridSignalGen.Visibility = Visibility.Hidden;
-            GridOscilloscope.Visibility = Visibility.Hidden;
-            GridSignalProc.Visibility = Visibility.Hidden;
+            //this.graphic.Changepage(GridDSPCOM);
         }
 
         private void BtnSigGen_Click(object sender, RoutedEventArgs e)
         {
-            GridHome.Visibility = Visibility.Hidden;
-            GridDSPCOM.Visibility = Visibility.Hidden;
-            GridSignalGen.Visibility = Visibility.Visible;
-            GridOscilloscope.Visibility = Visibility.Hidden;
-            GridSignalProc.Visibility = Visibility.Hidden;
+            if (generador == null)
+            {
+                generador = new Generador.Generator();
+            }
+            PageContaint.Content = generador;
+            
         }
 
         private void BtnOsc_Click(object sender, RoutedEventArgs e)
         {
-            GridHome.Visibility = Visibility.Hidden;
-            GridDSPCOM.Visibility = Visibility.Hidden;
-            GridSignalGen.Visibility = Visibility.Hidden;
-            GridOscilloscope.Visibility = Visibility.Visible;
-            GridSignalProc.Visibility = Visibility.Hidden;
+            if (osciloscopio == null) {
+                osciloscopio = new Osciloscopio.Oscilloscope();
+            }
+            PageContaint.Content = osciloscopio;
         }
 
         private void BtnSigPro_Click(object sender, RoutedEventArgs e)
         {
-            GridHome.Visibility = Visibility.Hidden;
-            GridDSPCOM.Visibility = Visibility.Hidden;
-            GridSignalGen.Visibility = Visibility.Hidden;
-            GridOscilloscope.Visibility = Visibility.Hidden;
-            GridSignalProc.Visibility = Visibility.Visible;
+            //this.graphic.Changepage(GridSignalProc);
         }
 
-        private void cmbFunctions_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (cmbFunctions.SelectedIndex)
-            {
-                case (int)Function.Default: 
-                    GridDefault.Visibility = Visibility.Visible;
-                    break;
-                default:
-                    GridDefault.Visibility = Visibility.Hidden;
-                    break;
-            }
-        }
-
-        private void var_init() {
-            boxAmplitude.Text = "1E3";
-            boxAmplitude.Text = "1E3";
-        }
+        
     }
+
+    
 }

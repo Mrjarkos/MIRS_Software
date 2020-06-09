@@ -1,0 +1,108 @@
+﻿<Page x:Class="Generador.Generator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Generador"
+      xmlns:codeg="clr-namespace:System;assembly=mscorlib"
+      xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+      mc:Ignorable="d" 
+      FontSize="15" FontFamily="Arial" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Generator">
+
+    <Page.Resources>
+        <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
+
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type codeg:Enum}" x:Key="ChannelEnu">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:Channel_Name"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <Style TargetType="TextBlock"  BasedOn="{StaticResource BaseTextBlockStyle}"/>
+        <Style TargetType="TextBox"  BasedOn="{StaticResource BaseTextBoxStyle}"/>
+        <Style TargetType="ComboBox"  BasedOn="{StaticResource BaseComboBoxkStyle}"/>
+    </Page.Resources>
+    <Page.Background>
+        <ImageBrush TileMode="None" ImageSource="resources/Background.png"/>
+    </Page.Background>
+
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Chart-->
+        <Grid x:Name="LayoutRoot" Grid.Column="1" Margin="20, 20, 20, 50" >
+            
+            <d3:Chart Name="plotter" BottomTitle="Time [s]" LeftTitle="Voltaje [V]" Background="Transparent">
+                <d3:Chart.Title>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5">Data Sent</TextBlock>
+                </d3:Chart.Title>
+                <d3:Chart.LegendContent>
+                    <d3:LegendItemsPanel>
+                        <d3:LegendItemsPanel.Resources>
+                            <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding Path=Visibility, Converter={StaticResource VisibilityToCheckedConverter}, Mode=TwoWay}"/>
+                                    <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" StrokeThickness="2"/>
+                                    <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </d3:LegendItemsPanel.Resources>
+                    </d3:LegendItemsPanel>
+                </d3:Chart.LegendContent>
+                <Grid Name="GeneratorSeries"/>
+            </d3:Chart>
+            
+        </Grid>
+        <!-- Signal Generator Properties-->
+        <Grid x:Name="GridFunction">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock  Grid.Column="1" Grid.Row="0" Text="Signal Generator Properties" Grid.ColumnSpan="3" HorizontalAlignment="Center" />
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Channel       " />
+            <ComboBox Grid.Column="2" Grid.Row="1" x:Name="cmbChannels" Grid.ColumnSpan="2" Width="70"
+                              ItemsSource="{Binding Source={StaticResource ChannelEnu}}" SelectionChanged="cmbChannels_SelectionChanged"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="1" Text="Enable" Margin="90,0,0,0" />
+            <CheckBox  Grid.Column="3" Grid.Row="1" x:Name="boxChEnable" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-6,5"/>
+
+            <Button x:Name="BtnAppl" Style="{StaticResource MenuButton}" Foreground="Black" Grid.Column="0"
+                        Grid.Row="3" Grid.ColumnSpan="2" Margin="20,2,0,2" BorderThickness="0" Visibility="Visible" Click="BtnAppl_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="resources/Apply.png" Width="30" Height="25"/>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="70">Apply Settings</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnSend" Style="{StaticResource MenuButton}" Foreground="Black" Grid.Column="2"
+                        Grid.Row="3" Grid.ColumnSpan="2" Margin="50,2,0,2" BorderThickness="0" Visibility="Visible" Click="BtnSend_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="resources/send.png" Width="30" Height="25"/>
+                    <TextBlock Text=" Send" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

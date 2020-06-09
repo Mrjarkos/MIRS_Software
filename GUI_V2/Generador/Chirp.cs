@@ -9,11 +9,12 @@ namespace Main
     public enum Chirp_Type {
         Lineal, Logaritmic
     }
-    class Chirp: WaveForm 
+    /*class Chirp: WaveForm 
     {
         float freq_init { get; set; }
         float freq_final { get; set; }
+        uint Points { get; set; }
         Chirp_Type type { get; set; }
         float time { get; set; }
-    }
+    }*/
 }
