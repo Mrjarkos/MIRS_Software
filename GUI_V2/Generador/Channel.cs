@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using MatlabLib;
 
 namespace Generador
 {
@@ -24,7 +25,7 @@ namespace Generador
             this.name = name;
             this.colorBrush = color;
             enable = false;
-            wave = MathFunctions.None();
+            wave = BasicMathFunctions.None();
         }
 
         public Channel() { 

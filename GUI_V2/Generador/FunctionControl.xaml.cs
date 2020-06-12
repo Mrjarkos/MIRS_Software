@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MatlabLib;
 
 namespace Generador
 {
@@ -27,9 +28,11 @@ namespace Generador
     public partial class FunctionControl : UserControl
     {
         DefaultFunction defaultFunction;
+
         public FunctionControl()
         {
             InitializeComponent();
+            
         }
 
         private void cmbFunctions_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,22 +62,28 @@ namespace Generador
         }
 
         public Points GetPoints() {
+
             var param = defaultFunction.GetParameters();
-            Points points = new Points(0);
+            Points points;
             switch (param.wave_form)
             {
                 case Default_Wave_Form.Sinusoidal:
-                    points = MathFunctions.Sin(param.Amp, param.freq, param.Offset, param.Inv, param.Ph);
+                    points = BasicMathFunctions.Sin(param.Amp, param.freq, param.Offset, param.Inv, param.Ph);
                     break;
                 case Default_Wave_Form.Square:
+                    points = BasicMathFunctions.Square(param.Amp, param.freq, param.Offset, param.Inv, param.duty, param.Ph);
                     break;
                 case Default_Wave_Form.Triangular:
+                    points = BasicMathFunctions.Triangular(param.Amp, param.freq, param.Offset, param.Inv, param.Ph);
                     break;
                 case Default_Wave_Form.Sawtooth:
+                    points = BasicMathFunctions.Sawtooth(param.Amp, param.freq, param.Offset, param.Inv, param.duty, param.Ph);
                     break;
                 case Default_Wave_Form.Sinus_Rectified:
+                    points = BasicMathFunctions.SinRect(param.Amp, param.freq, param.Offset, param.Inv, param.Ph);
                     break;
                 default:
+                    points = BasicMathFunctions.None();
                     break;
             }
             return points;

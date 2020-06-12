@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using InteractiveDataDisplay.WPF;
 using Osciloscopio;
 using Generador;
+using MatlabLib;
+//using Magic;
+
 
 
 namespace Main
@@ -26,17 +29,18 @@ namespace Main
     public partial class MainWindow : Window
     {
 
-        Page Inicio;
-        Page conexion;
+        //Page Inicio;
+        //Page conexion;
         Page generador;
         Page osciloscopio;
-        Page procesamiento;
+        //Page procesamiento;
         //Page Ayuda;
 
         public MainWindow()
         {
             InitializeComponent();
             PageContaint.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)

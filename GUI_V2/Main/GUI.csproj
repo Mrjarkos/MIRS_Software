@@ -19,7 +19,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -36,6 +36,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Main.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="InteractiveDataDisplay.WPF, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -168,13 +171,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Comunicacion\Comunicacion.vcxproj">
-      <Project>{4083c97c-dde2-471e-ac50-48f34e386a33}</Project>
-      <Name>Comunicacion</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Generador\Generador.csproj">
       <Project>{75ae155d-457e-4551-8b71-4326f6b1c462}</Project>
       <Name>Generador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MatlabLib\MatlabLib.csproj">
+      <Project>{9a68ee3d-ac36-4028-ab65-0a78a6d49e64}</Project>
+      <Name>MatlabLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\Osciloscopio\Osciloscopio.csproj">
       <Project>{2a80b32e-0898-4f54-a7d5-2d380f5b0d44}</Project>

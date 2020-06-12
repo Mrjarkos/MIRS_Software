@@ -8,15 +8,16 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Generador</RootNamespace>
     <AssemblyName>Generador</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -112,6 +113,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Test">
+      <HintPath>..\Matlab Library\test\for_redistribution_files_only\Test.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -151,7 +155,6 @@
     <Compile Include="Generator.xaml.cs">
       <DependentUpon>Generator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MathFunctions.cs" />
     <Compile Include="PointShapeLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -210,6 +213,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MatlabLib\MatlabLib.csproj">
+      <Project>{9a68ee3d-ac36-4028-ab65-0a78a6d49e64}</Project>
+      <Name>MatlabLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Theme\Project.Theme.csproj">
       <Project>{9d347fd8-9ac7-4e1b-8761-1af722611182}</Project>
       <Name>Project.Theme</Name>
