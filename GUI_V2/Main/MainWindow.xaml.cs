@@ -16,8 +16,6 @@ using InteractiveDataDisplay.WPF;
 using Osciloscopio;
 using Generador;
 using MatlabLib;
-//using Magic;
-
 
 
 namespace Main
@@ -29,7 +27,7 @@ namespace Main
     public partial class MainWindow : Window
     {
 
-        //Page Inicio;
+        Page inicio;
         //Page conexion;
         Page generador;
         Page osciloscopio;
@@ -39,13 +37,19 @@ namespace Main
         public MainWindow()
         {
             InitializeComponent();
+            BasicMathFunctions.Inicializar();
             PageContaint.NavigationUIVisibility = NavigationUIVisibility.Hidden;
-            
+            inicio = new Main.Home();
+            PageContaint.Content = inicio;
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            //this.graphic.Changepage(GridHome);
+            if (inicio == null)
+            {
+                inicio = new Main.Home();
+            }
+            PageContaint.Content = inicio;
         }
 
         private void BtnDSPcon_Click(object sender, RoutedEventArgs e)
@@ -60,7 +64,6 @@ namespace Main
                 generador = new Generador.Generator();
             }
             PageContaint.Content = generador;
-            
         }
 
         private void BtnOsc_Click(object sender, RoutedEventArgs e)

@@ -5,10 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Osciloscopio"
       mc:Ignorable="d" 
+      FontSize="18" FontFamily="Helvetica" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Oscilloscope">
 
-
+    <Page.Background>
+        <ImageBrush TileMode="None" ImageSource="resources/Background2.png"/>
+    </Page.Background>
     <Grid x:Name="GridOscilloscope" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden"
                      Height="auto" Width="auto" Background="{StaticResource GridBackground}">
         <TextBlock Text="Oscilloscope"/>

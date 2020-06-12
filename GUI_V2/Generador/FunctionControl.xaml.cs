@@ -16,7 +16,6 @@ using MatlabLib;
 
 namespace Generador
 {
-
     public enum FunctionEnu
     {
         Default, Burst, AC_Sweep, User//, Modulation
@@ -45,8 +44,8 @@ namespace Generador
                         defaultFunction = new DefaultFunction();
                         this.MainGrid.Children.Add(defaultFunction);
                         Grid.SetRow(defaultFunction, 1);
-                        Grid.SetColumn(defaultFunction, 1);
-                        Grid.SetColumnSpan(defaultFunction, 3);
+                        Grid.SetColumn(defaultFunction, 0);
+                        Grid.SetColumnSpan(defaultFunction, 4);
                     }
                     defaultFunction.Visibility = Visibility.Visible;
                     break;

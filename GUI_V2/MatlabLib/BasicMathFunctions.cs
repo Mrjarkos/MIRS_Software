@@ -11,7 +11,11 @@ namespace MatlabLib
 {
     public abstract class BasicMathFunctions
     {
-        private static BasicFunctions basicFunctions = new BasicFunctions();
+        private static BasicFunctions basicFunctions;
+
+        public static void Inicializar() {
+            basicFunctions = new BasicFunctions();
+        }
 
         public static Points Sin(float Amp, float freq, float Offset, bool Inv, float Ph, int length = 4096)
         {

@@ -5,8 +5,6 @@
         <ResourceDictionary Source="ColorPalette.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-
-
     <Style TargetType="Button"
            x:Key="MenuButton">
 
@@ -16,9 +14,9 @@
         <Setter Property="TextOptions.TextHintingMode" Value="Animated"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="115"/>
-        <Setter Property="Margin" Value="0,10"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Margin" Value="0,5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">

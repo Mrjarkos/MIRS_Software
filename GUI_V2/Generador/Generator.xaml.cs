@@ -87,32 +87,6 @@ namespace Generador
             grap();
         }
 
-        private void cmbFunctions_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //switch (cmbFunctions.SelectedIndex)
-            //{
-            //    case (int)Function.Default:
-            //        defaultGui();
-                    
-            //        break;
-            //    case (int)Function.AC_Sweep:
-            //        GridProperties.Visibility = Visibility.Hidden;
-            //        GridBurst.Visibility = Visibility.Hidden;
-            //        GridChirp.Visibility = Visibility.Visible;
-            //        break;
-            //    case (int)Function.Burst:
-            //        GridProperties.Visibility = Visibility.Hidden;
-            //        GridBurst.Visibility = Visibility.Visible;
-            //        GridChirp.Visibility = Visibility.Hidden;
-            //        break;
-            //    default:
-            //        GridProperties.Visibility = Visibility.Hidden;
-            //        GridBurst.Visibility = Visibility.Hidden;
-            //        GridChirp.Visibility = Visibility.Hidden;
-            //        break;
-            //}
-        }
-
         private void cmbWave_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
             ComboBox box = sender as ComboBox;
@@ -132,17 +106,6 @@ namespace Generador
                     duty.IsEnabled = true;
                     break;
             }
-        }
-
-        private StackPanel addChildrenStack(List<UIElement> controls) {
-            StackPanel stack = new StackPanel();
-            stack.Orientation = Orientation.Horizontal;
-            foreach (UIElement control in controls) {
-                var newcontrol = new UIElement();
-                newcontrol = control.GetCopy();
-                stack.Children.Add(newcontrol);
-            }
-            return stack;
         }
 
         private void grap()
@@ -173,8 +136,8 @@ namespace Generador
                 channels[i].Gui = new FunctionControl();
                 this.GridFunction.Children.Add(channels[i].Gui);
                 Grid.SetRow(channels[i].Gui, 2);
-                Grid.SetColumn(channels[i].Gui, 1);
-                Grid.SetColumnSpan(channels[i].Gui, 3);
+                Grid.SetColumn(channels[i].Gui, 0);
+                Grid.SetColumnSpan(channels[i].Gui, 4);
             }
             channels[i].Gui.Visibility = Visibility.Visible;
         }

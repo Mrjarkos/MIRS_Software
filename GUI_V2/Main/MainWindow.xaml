@@ -7,7 +7,7 @@
         xmlns:codeg="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         xmlns:local="clr-namespace:Main"
-        FontSize="15" FontFamily="Rockwell" 
+        FontSize="18" FontFamily="Helvetica" 
         Title="Nombre y Logo bonito Aqui" Width="850" Height="480" MinWidth="850" MinHeight="480"
         WindowStartupLocation="Manual" Icon="resources/Images/LogoIEEE.png" Topmost="True">
 
@@ -19,7 +19,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="175"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="110"/>
@@ -37,10 +37,7 @@
         <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Background="{StaticResource Background}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="15"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5"/>
@@ -49,68 +46,56 @@
 
             <Image Source="/resources/Images/LogoIEEE.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-            <StackPanel  x:Name="VerticalMenubar"  Grid.Row="1" Grid.Column="1"  Height="auto" Width="auto" Grid.RowSpan="4" >
-                <Button  x:Name="BtnHome"  Style="{StaticResource MenuButton}" Click="BtnHome_Click" Width="140">
+            <StackPanel  x:Name="VerticalMenubar"  Grid.Row="1" Grid.Column="1"  Height="auto" Width="auto">
+                <Button  x:Name="BtnHome"  Style="{StaticResource MenuButton}" Click="BtnHome_Click" Width="170">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="resources/Icons/home.png" Width="auto" Height="auto"/>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="80">Home</TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="100">Home</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnDSPcon" Style="{StaticResource MenuButton}" HorizontalAlignment="Center" Click="BtnDSPcon_Click" Width="140">
+                <Button x:Name="BtnDSPcon" Style="{StaticResource MenuButton}" HorizontalAlignment="Center"
+                        Click="BtnDSPcon_Click" Width="170">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="resources/Icons/connect.png" Width="auto" Height="auto"/>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="80">Connect DSP</TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="90">Connect DSP</TextBlock>
                     </StackPanel>
                    
                 </Button>
-                <Button x:Name="BtnSigGen" Style="{StaticResource MenuButton}"  Click="BtnSigGen_Click" Width="140">
+                <Button x:Name="BtnSigGen" Style="{StaticResource MenuButton}"  Click="BtnSigGen_Click" Width="170">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="resources/Icons/edit.png" Width="auto" Height="auto"/>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="80"><Run Text="Signal Generator"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="90"><Run Text="Signal Generator"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnOsc" Style="{StaticResource MenuButton}" Click="BtnOsc_Click" Width="140">
+                <Button x:Name="BtnOsc" Style="{StaticResource MenuButton}" Click="BtnOsc_Click" Width="170">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="resources/Icons/graphic.png" Width="auto" Height="auto"/>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="80">Signal display</TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="90">Signal display</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnSigPro" Style="{StaticResource MenuButton}" Click="BtnSigPro_Click" Width="140">
+                <Button x:Name="BtnSigPro" Style="{StaticResource MenuButton}" Click="BtnSigPro_Click" Width="170">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="resources/Icons/processing.png" Width="auto" Height="auto"/>
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="80">Signal Processing</TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Width="90">Signal Processing</TextBlock>
                     </StackPanel>
                     
                 </Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="0" Height="auto" Width="auto" Grid.RowSpan="3">
-                <Grid Height="40" Margin="0,10" Width="5" Background="{StaticResource Highlight}"></Grid>
-                <Grid Height="40" Margin="0,10" Width="5" Background="{StaticResource Highlight}"></Grid>
-                <Grid Height="40" Margin="0,10" Width="5" Background="{StaticResource Highlight}"></Grid>
-                <Grid Height="40" Margin="0,10" Width="5" Background="{StaticResource Highlight}"></Grid>
-                <Grid Height="40" Margin="0,10" Width="5" Background="{StaticResource Highlight}"></Grid>
+                <Grid Height="50" Margin="0,5" Width="5" Background="{StaticResource Highlight}"></Grid>
+                <Grid Height="50" Margin="0,5" Width="5" Background="{StaticResource Highlight}"></Grid>
+                <Grid Height="50" Margin="0,5" Width="5" Background="{StaticResource Highlight}"></Grid>
+                <Grid Height="50" Margin="0,5" Width="5" Background="{StaticResource Highlight}"></Grid>
+                <Grid Height="50" Margin="0,5" Width="5" Background="{StaticResource Highlight}"></Grid>
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="GridHome" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Visible"
-                     Height="auto" Width="auto" Background="{StaticResource GridBackground}">
-            <TextBlock Text="Home"/>
-        </Grid>
+       
 
-        <Grid x:Name="GridDSPCOM" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden"
-                     Height="auto" Width="auto" Background="{StaticResource GridBackground}">
-            <TextBlock Text="Connect DSP"/>
-        </Grid>
-
-        <!-- Signal Generator Window-->
+        <!-- Page Containt-->
         <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Visible"
                      Height="auto" Width="auto" Background="{StaticResource GridBackground}">
             <Frame x:Name="PageContaint"/>
-        </Grid>
-
-        <Grid x:Name="GridSignalProc" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden"
-                     Height="auto" Width="auto" Background="{StaticResource GridBackground}">
-            <TextBlock Text="Signal Processing"/>
         </Grid>
 
         <!-- Menu -->
