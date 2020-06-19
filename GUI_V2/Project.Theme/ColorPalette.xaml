@@ -11,7 +11,9 @@
     <SolidColorBrush x:Key="Color4"   Color="#2A806E"/>
     <SolidColorBrush x:Key="Color5"   Color="#4BE6C6"/>
     <SolidColorBrush x:Key="Color6"   Color="#54FFDD"/>
-    
+    <SolidColorBrush x:Key="Aceptar"   Color="#FF30DA6E"/>
+    <SolidColorBrush x:Key="Cancelar"   Color="#FFD80000"/>
+
     <Color x:Key="BtnMouseOverColor" A="222" R="31" G="123" B="224"/><!--Color2 RGB-->
     <Color x:Key="BtnBackgroundColor" A="59" R="8" G="29" B="59"/><!--Color 1 RGB-->
 

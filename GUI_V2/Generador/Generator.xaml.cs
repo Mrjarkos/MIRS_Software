@@ -141,58 +141,6 @@ namespace Generador
             }
             channels[i].Gui.Visibility = Visibility.Visible;
         }
-
-        // private Points defaultFunction() {
-        //Points wave = new Points(0);
-        //float freq, amp, offset, phase, duty;
-        //bool inv = false;
-        //List<float> parameters = new List<float>();
-        //foreach (var child in GridProperties.Children)
-        //{
-        //    var stackelement = (StackPanel)child;
-        //    try
-        //    {
-        //        var textbox = (TextBox)stackelement.Children[1];
-        //        float param = float.TryParse(textbox.Text, out param) ? param : 0;
-        //        parameters.Add(param);
-        //    }
-        //    catch {
-        //        try
-        //        {
-        //            var textbox = (CheckBox)stackelement.Children[1];
-        //            inv = textbox.IsChecked == true;
-        //        }
-        //        catch { 
-        //        }
-        //    }
-        //}
-
-        //amp = parameters[0];
-        //freq = parameters[1];
-        //phase = parameters[2];
-        //offset = parameters[3];
-        //duty = parameters[4];
-
-        //if (freq != 0)
-        //{
-        //    switch ((Default_Wave_Form)cmbWave.SelectedIndex)
-        //    {
-        //        case Default_Wave_Form.Sinusoidal:
-        //            wave = MathFunctions.Sin(amp, freq, offset, inv, phase);
-        //            break;
-        //        case Default_Wave_Form.Square:
-        //            wave = MathFunctions.Square(amp, freq, offset, inv, duty, phase);
-        //            break;
-        //        case Default_Wave_Form.Triangular:
-        //            break;
-        //    }
-        //}
-        //else {
-        //    wave = MathFunctions.None();
-        //}
-        //return wave;
-
-        //}
     }
 
     public class VisibilityToCheckedConverter : IValueConverter

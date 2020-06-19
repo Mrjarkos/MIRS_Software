@@ -4,16 +4,81 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Osciloscopio"
+      xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+      xmlns:view="clr-namespace:WpfRotaryControlDemo.View;assembly=Project.Theme"
       mc:Ignorable="d" 
       FontSize="18" FontFamily="Helvetica" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Oscilloscope">
+      Title="Oscilloscope" SizeChanged="Page_SizeChanged">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock"  BasedOn="{StaticResource BaseTextBlockStyle}"/>
+        <Style TargetType="TextBox"  BasedOn="{StaticResource BaseTextBoxStyle}"/>
+        <Style TargetType="ComboBox"  BasedOn="{StaticResource BaseComboBoxkStyle}"/>
+        <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
+    </Page.Resources>
 
     <Page.Background>
         <ImageBrush TileMode="None" ImageSource="resources/Background2.png"/>
     </Page.Background>
-    <Grid x:Name="GridOscilloscope" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden"
-                     Height="auto" Width="auto" Background="{StaticResource GridBackground}">
-        <TextBlock Text="Oscilloscope"/>
+
+    <Grid x:Name="GridOscilloscope" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3"
+                     Height="auto" Width="auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="StackMeasurements" Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnAddMeasurement" Grid.Column="0" Grid.Row="1" Foreground="Black" Style="{StaticResource MenuButton}" Click="btnAddMeasurement_Click"></Button>
+            <Button x:Name="btnRemove" Grid.Column="2" Grid.Row="1" Foreground="Black" Style="{StaticResource MenuButton}"/>
+        </Grid>
+
+        <Grid x:Name="LayoutRoot" Grid.Column="2" Grid.Row="1" >
+            <d3:Chart Name="plotter" BottomTitle="Time [s]" LeftTitle="Voltaje [V]" Background="Transparent">
+                <d3:Chart.Title>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" FontFamily="Helvetica" FontSize="18" FontWeight="Bold">Data Sent</TextBlock>
+                </d3:Chart.Title>
+                <d3:Chart.LegendContent>
+                    <d3:LegendItemsPanel>
+                        <d3:LegendItemsPanel.Resources>
+                            <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding Path=Visibility, Converter={StaticResource VisibilityToCheckedConverter}, Mode=TwoWay}"/>
+                                    <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" StrokeThickness="2"/>
+                                    <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </d3:LegendItemsPanel.Resources>
+                    </d3:LegendItemsPanel>
+                </d3:Chart.LegendContent>
+                <Grid Name="OscilloscopeSeries"/>
+            </d3:Chart>
+        </Grid>
+        <Grid x:Name="GridProperties" Grid.Row="1" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <local:Vertical x:Name="verticalControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                            Margin="10,0,0, 0" RenderTransformOrigin="0.5,0.5" Height="auto" Width="auto"/>
+        </Grid>
     </Grid>
 </Page>
